@@ -1,0 +1,246 @@
+<html><body><form id="f" name="f"><table>
+<style>
+    input { text-align: right; margin:0; padding:0; }
+    input[type=checkbox] { height: 9px;width:9px;margin-right:0px;margin-left:0px; }
+</style>
+
+<tr><th>Base<th>A<th><th>B<th>Result<th>Group</tr>
+<tr>
+    <td>Dec</td>
+    <td><input type="text" id="aDec" name="aDec" size=32 tabindex="0" onChange="updDec();return false;" value=0></td>
+    <td rowspan=3><select name="op" id="op" tabindex=6 onChange="updDec();return false;"><option value="or">OR<option value="and">AND<option value="xor">XOR<option value="add">+<option value="sub">-<option value=">>">&gt;&gt;<option value="<<">&lt;&lt;</select></td>
+    <td><input type="text" id="bDec" name="bDec" size=32 tabindex="1" onChange=updDec();return false;" value=0></td>
+    <td><input type="text" id="rDec" name="rDec" size=32 readonly></td>
+    <td><select name="groupDec" tabindex=7 onChange="updDec();return false;"><option value="64">All<option value="3" selected>3<option value="6">6</select></td>
+    </tr>
+<tr>
+    <td>Hex</td>
+    <td><input type="text" id="aHex" name="aHex" size=32 tabindex="2" onChange="updHex();return false;" value=0></td>
+
+    <td><input type="text" id="bHex" name="bHex" size=32 tabindex="3" onChange="updHex();return false;" value=0></td>
+    <td><input type="text" id="rHex" name="rHex" size=32 readonly></td>
+    <td><select id="groupHex" tabindex=7 onChange="updDec();return false;"><option value="64">All<option value="2" selected>2<option value="4">4<option value="8">8</select></td>
+</tr>
+<tr>
+    <td>Bin</td>
+    <td><input type="text" id="aBin" name="aBin" size=32 tabindex=4 onChange="updBin();return false;" value=0></td>
+
+    <td><input type="text" id="bBin" name="bBin" size=32 tabindex=5 onChange="updBin();return false;" value=0></td>
+    <td><input type="text" id="rBin" name="rBin" size=32 readonly></td>
+    <td><select name="groupBin" tabindex=9 onChange="updDec();return false;"><option value="64">All<option value="2">2<option value="4">4<option value="8" selected>8</select></td>
+</tr>
+<tr>
+    <td></td>
+    <td colspan="2">
+         <input type="checkbox" title="31" name="a31" onChange="updA(31);"><input type="checkbox" title="30" name="a30" onChange="updA(30);"
+        ><input type="checkbox" title="29" name="a29" onChange="updA(29);"><input type="checkbox" title="28" name="a28" onChange="updA(28);"
+        ><input type="checkbox" title="27" name="a27" onChange="updA(27);"><input type="checkbox" title="26" name="a26" onChange="updA(26);"
+        ><input type="checkbox" title="25" name="a25" onChange="updA(25);"><input type="checkbox" title="24" name="a24" onChange="updA(24);"
+        ><input type="checkbox" title="23" name="a23" onChange="updA(23);"><input type="checkbox" title="22" name="a22" onChange="updA(22);"
+        ><input type="checkbox" title="21" name="a21" onChange="updA(21);"><input type="checkbox" title="20" name="a20" onChange="updA(20);"
+        ><input type="checkbox" title="19" name="a19" onChange="updA(19);"><input type="checkbox" title="18" name="a18" onChange="updA(18);"
+        ><input type="checkbox" title="17" name="a17" onChange="updA(17);"><input type="checkbox" title="16" name="a16" onChange="updA(16);"
+        ><input type="checkbox" title="15" name="a15" onChange="updA(15);"><input type="checkbox" title="14" name="a14" onChange="updA(14);"
+        ><input type="checkbox" title="13" name="a13" onChange="updA(13);"><input type="checkbox" title="12" name="a12" onChange="updA(12);"
+        ><input type="checkbox" title="11" name="a11" onChange="updA(11);"><input type="checkbox" title="10" name="a10" onChange="updA(10);"
+        ><input type="checkbox" title="9" name="a9" onChange="updA(9);"><input type="checkbox" title="8" name="a8" onChange="updA(8);"
+        ><input type="checkbox" title="7" name="a7" onChange="updA(7);"><input type="checkbox" title="6" name="a6" onChange="updA(6);"
+        ><input type="checkbox" title="5" name="a5" onChange="updA(5);"><input type="checkbox" title="4" name="a4" onChange="updA(4);"
+        ><input type="checkbox" title="3" name="a3" onChange="updA(3);"><input type="checkbox" title="2" name="a2" onChange="updA(2);"
+        ><input type="checkbox" title="1" name="a1" onChange="updA(1);"><input type="checkbox" title="0" name="a0" onChange="updA(0);">
+        <a href="" onClick="invertA();return false;" alt="Invert">&#x2B15;</a>
+    </td>
+    <td colspan="2">
+         <input type="checkbox" title="31" name="b31" onChange="updB(31);"><input type="checkbox" title="30" name="b30" onChange="updB(30);"
+        ><input type="checkbox" title="29" name="b29" onChange="updB(29);"><input type="checkbox" title="28" name="b28" onChange="updB(28);"
+        ><input type="checkbox" title="27" name="b27" onChange="updB(27);"><input type="checkbox" title="26" name="b26" onChange="updB(26);"
+        ><input type="checkbox" title="25" name="b25" onChange="updB(25);"><input type="checkbox" title="24" name="b24" onChange="updB(24);"
+        ><input type="checkbox" title="23" name="b23" onChange="updB(23);"><input type="checkbox" title="22" name="b22" onChange="updB(22);"
+        ><input type="checkbox" title="21" name="b21" onChange="updB(21);"><input type="checkbox" title="20" name="b20" onChange="updB(20);"
+        ><input type="checkbox" title="19" name="b19" onChange="updB(19);"><input type="checkbox" title="18" name="b18" onChange="updB(18);"
+        ><input type="checkbox" title="17" name="b17" onChange="updB(17);"><input type="checkbox" title="16" name="b16" onChange="updB(16);"
+        ><input type="checkbox" title="15" name="b15" onChange="updB(15);"><input type="checkbox" title="14" name="b14" onChange="updB(14);"
+        ><input type="checkbox" title="13" name="b13" onChange="updB(13);"><input type="checkbox" title="12" name="b12" onChange="updB(12);"
+        ><input type="checkbox" title="11" name="b11" onChange="updB(11);"><input type="checkbox" title="10" name="b10" onChange="updB(10);"
+        ><input type="checkbox" title="9" name="b9" onChange="updB(9);"><input type="checkbox" title="8" name="b8" onChange="updB(8);"
+        ><input type="checkbox" title="7" name="b7" onChange="updB(7);"><input type="checkbox" title="6" name="b6" onChange="updB(6);"
+        ><input type="checkbox" title="5" name="b5" onChange="updB(5);"><input type="checkbox" title="4" name="b4" onChange="updB(4);"
+        ><input type="checkbox" title="3" name="b3" onChange="updB(3);"><input type="checkbox" title="2" name="b2" onChange="updB(2);"
+        ><input type="checkbox" title="1" name="b1" onChange="updB(1);"><input type="checkbox" title="0" name="b0" onChange="updB(0);">
+        <a href="" onClick="invertB();return false;" alt="Invert">&#x2B15;</a>
+    </td>
+</tr>
+<tr><td colspan=6 align="right"><font size="-1" color="#eeeeee"><p>&#x00A9; Turo Heikkinen 2023</font></td></tr>
+</table></form>
+<script language=javascript>
+f = document.getElementById("f")
+
+function invertA() {
+    f.aDec.value = ~valA() >>> 0
+    updDec()
+}
+
+function invertB() {
+    f.bDec.value = ~valB() >>> 0
+    updDec()
+}
+
+// Converts decimal string (or integer) to individual checkbox bits
+// @param sourceElem  The form element used as source
+// @param fieldPrefix Bit elements are checkboxes named <fieldPrefix><bit number>
+function dec2bits(sourceElem, fieldPrefix) {
+    var num = sourceElem.value.replaceAll(" ", "")
+    for (var i = 0; i < 32; i++) {
+        f[fieldPrefix + i].checked = (num & (1 << i)) != 0
+    }
+}
+
+// Updates other values when a bit in "A" is updated
+// @param a  Bit number
+function updA(a) {
+    if (f["a" + a].checked) {
+        f.aDec.value = (valA() | (1 << a)) >>> 0;
+    } else {
+        f.aDec.value = (valA() & ~(1 << a)) >>> 0;
+    }
+    updDec()
+}
+
+// Updates other values when a bit in "B" is updated
+// @param a  Bit number
+function updB(a) {
+    if (f["b" + a].checked) {
+        f.bDec.value = (valB() | (1 << a)) >>> 0;
+    } else {
+        f.bDec.value = (valB() & ~(1 << a)) >>> 0;
+    }
+    updDec()
+}
+
+// Reverses a string
+function reverseString(str) { return str.split("").reverse().join(""); }
+
+// Converts hex string to integer
+function hex2dec(a) {
+    a=a.replaceAll(" ", "")
+    return parseInt(a,16)
+}
+
+// Convertes a decimal number string to hex string
+function dec2hex(a) { return parseInt(a).toString(16).toUpperCase(); }
+
+// Converts binary string to integer
+function bin2dec(a) {
+    a=a.replaceAll(" ", "")
+    return parseInt(a,2)
+}
+
+// Converts decimal number string to binary string
+function dec2bin(a) { return parseInt(a).toString(2); }
+
+// Groups string s with a space every g chars, counting from end
+function group(s,g) {
+    s = (typeof s != 'string') ? s.toString() : s
+    s = reverseString(s)
+    const reStr = ".{1," + g + "}"
+    var re = new RegExp(reStr,"g");
+    const temp = s.match(re)
+    return reverseString(temp.join(' '))
+}
+
+// Returns the selected binary operator
+function op() { return f.op.value; }
+
+// Returns dec/hex/bin group value as integer
+function grpDec() { return parseInt(f.groupDec.value, 10); }
+function grpHex() { return parseInt(f.groupHex.value, 10); }
+function grpBin() { return parseInt(f.groupBin.value, 10); }
+
+// Returns operand/result a as integer
+function valA() { return parseInt(f.aDec.value.replaceAll(" ", ""), 10); }
+function valB() { return parseInt(f.bDec.value.replaceAll(" ", ""), 10); }
+function valR() { return parseInt(f.rDec.value.replaceAll(" ", ""), 10); }
+
+// Sets result
+function setVal(a) { f.rDec.value = a; }
+
+// Update spacing between bit checkboxes
+// @param groupChars Number of characters to group
+function updBits(groupChars) {
+    var sp = 2
+
+    gr8 = groupChars <= 8 ? sp : 0
+    f.a24.style.marginRight = f.b24.style.marginRight = gr8
+    f.a16.style.marginRight = f.b16.style.marginRight = gr8
+    f.a8.style.marginRight  = f.b8.style.marginRight  = gr8
+
+    gr4 = groupChars <= 4 ? sp : 0
+    f.a28.style.marginRight = f.b28.style.marginRight = gr4
+    f.a20.style.marginRight = f.b20.style.marginRight = gr4
+    f.a12.style.marginRight = f.b12.style.marginRight = gr4
+    f.a4.style.marginRight  = f.b4.style.marginRight  = gr4
+
+    gr2 = groupChars <= 2 ? sp : 0
+    f.a30.style.marginRight = f.b30.style.marginRight = gr2
+    f.a26.style.marginRight = f.b26.style.marginRight = gr2
+    f.a22.style.marginRight = f.b22.style.marginRight = gr2
+    f.a18.style.marginRight = f.b18.style.marginRight = gr2
+    f.a14.style.marginRight = f.b14.style.marginRight = gr2
+    f.a10.style.marginRight = f.b10.style.marginRight = gr2
+    f.a6.style.marginRight  = f.b6.style.marginRight  = gr2
+    f.a2.style.marginRight  = f.b2.style.marginRight  = gr2
+}
+
+// Calculates result in decimal (integer really) domain and updates dec result and all hex&bin numbers
+function updDec() {
+    if (isNaN(valA())) { f.aDec.value = 0 }
+    if (isNaN(valB())) { f.bDec.value = 0 }
+    var result = 0
+    if (op() == "and") { result = (valA() & valB()) >>> 0; }
+    else if(op() == "or") { result = (valA() | valB()) >>> 0; }
+    else if(op() == "xor") { result = (valA() ^ valB()) >>> 0; }
+    else if(op() == "add") { result = valA() + valB(); }
+    else if(op() == "sub") { result = valA() - valB(); }
+    else if(op() == ">>") { result = valA() >> valB(); }
+    else if(op() == ">>>") { result = valA() >>> valB(); }
+    else if(op() == "<<") { result = valA() << valB(); }
+
+    if (valA() > 2**53 || valB() > 2**53 || result > 2**53) {
+        window.alert("Warning, numbers higher than 2^53 may not work properly due to JavaScript's number handling.")
+    }
+
+    f.aDec.value = group(valA(), grpDec())
+    f.bDec.value = group(valB(), grpDec())
+    f.rDec.value = group(result, grpDec())
+
+    f.aHex.value = group(dec2hex(valA()), grpHex())
+    f.bHex.value = group(dec2hex(valB()), grpHex())
+    f.rHex.value = group(dec2hex(valR()), grpHex())
+
+    f.aBin.value = group(dec2bin(valA()), grpBin())
+    f.bBin.value = group(dec2bin(valB()), grpBin())
+    f.rBin.value = group(dec2bin(valR()), grpBin())
+    updBits(grpBin())
+    dec2bits(f.aDec, "a")
+    dec2bits(f.bDec, "b")
+}
+
+// Hex updated -> copy hex numbers to dec and call its update
+function updHex() {
+    f.aDec.value = hex2dec(f.aHex.value)
+    f.bDec.value = hex2dec(f.bHex.value)
+    updDec()
+}
+
+// Bin updated -> copy bin numbers to dec and call its update
+function updBin() {
+    f.aDec.value = bin2dec(f.aBin.value)
+    f.bDec.value = bin2dec(f.bBin.value)
+    updDec()
+}
+
+updBits(grpBin())   // Regroup bits according to whatever set
+
+//Copyright Turo Heikkinen 2023
+</script>
+</body></html>
