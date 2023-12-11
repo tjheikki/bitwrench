@@ -1,5 +1,5 @@
 # bitwrench
-A HTML/Javascript bit tweaking tool
+A HTML/Javascript bit tweaking tool.<br>
 Supports:<br>
 <ul>
   <li>Conversion from/to decimal, hexadecimal and binary</li>
